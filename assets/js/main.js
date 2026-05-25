@@ -237,3 +237,33 @@
 
 
 })(jQuery);
+// ===== JOB SEARCH FUNCTION =====
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const searchInput = document.getElementById("jobSearch");
+    const jobs = document.querySelectorAll(".job-item");
+
+    if (searchInput) {
+
+        searchInput.addEventListener("keyup", function () {
+
+            const value = this.value.toLowerCase();
+
+            jobs.forEach(function (job) {
+
+                const text = job.textContent.toLowerCase();
+
+                if (text.includes(value)) {
+                    job.style.display = "flex";
+                } else {
+                    job.style.display = "none";
+                }
+
+            });
+
+        });
+
+    }
+
+});
