@@ -237,33 +237,39 @@
 
 
 })(jQuery);
-// ===== JOB SEARCH FUNCTION =====
-
 document.addEventListener("DOMContentLoaded", function () {
 
     const searchInput = document.getElementById("jobSearch");
-    const jobs = document.querySelectorAll(".job-item");
+    const locationFilter = document.getElementById("locationFilter");
+    const jobs = document.querySelectorAll(".single-job-items");
 
-    if (searchInput) {
+    function filterJobs() {
 
-        searchInput.addEventListener("keyup", function () {
+        const value = searchInput.value.toLowerCase();
+        const locationValue = locationFilter ? locationFilter.value.toLowerCase() : "";
 
-            const value = this.value.toLowerCase();
+        jobs.forEach(function (job) {
 
-            jobs.forEach(function (job) {
+            const text = job.textContent.toLowerCase();
 
-                const text = job.textContent.toLowerCase();
+            const matchText = text.includes(value);
+            const matchLocation = locationValue === "" || text.includes(locationValue);
 
-                if (text.includes(value)) {
-                    job.style.display = "flex";
-                } else {
-                    job.style.display = "none";
-                }
-
-            });
+            if (matchText && matchLocation) {
+                job.style.display = "flex";
+            } else {
+                job.style.display = "none";
+            }
 
         });
+    }
 
+    if (searchInput) {
+        searchInput.addEventListener("keyup", filterJobs);
+    }
+
+    if (locationFilter) {
+        locationFilter.addEventListener("change", filterJobs);
     }
 
 });

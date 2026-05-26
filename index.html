@@ -66,8 +66,8 @@
                                 </div>          
                                 <!-- Header-btn -->
                                 <div class="header-btn d-none f-right d-lg-block">
-                                    <a href="#" class="btn head-btn1">Register</a>
-                                    <a href="#" class="btn head-btn2">Login</a>
+                                    <a href="login.html" class="btn head-btn1">Register</a>
+                                    <a href="login.html" class="btn head-btn2">Login</a>
                                 </div>
                             </div>
                         </div>
@@ -100,24 +100,27 @@
                         <div class="row">
                             <div class="col-xl-8">
                                 <!-- form -->
-                                <form action="#" class="search-box">
-                                    <div class="input-form" id="jobSearch">
-                                        <input type="text" id="jobSearch" placeholder="Job Tittle or keyword">
-                                    </div>
-                                    <div class="select-form">
-                                        <div class="select-itms">
-                                            <select name="select" id="select1">
-                                                <option value="">Location BD</option>
-                                                <option value="">Location PK</option>
-                                                <option value="">Location US</option>
-                                                <option value="">Location UK</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="search-form">
-                                        <a href="#">Find job</a>
-                                    </div>	
-                                </form>	
+                                 <form action="#" class="search-box">
+    <div class="input-form">
+        <input type="text" id="jobSearch" placeholder="Job Title, Company or Location">
+    </div>
+
+    <div class="select-form">
+        <div class="select-itms">
+            <select id="locationFilter">
+                <option value="">All Locations</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Pune">Pune</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="search-form">
+        <a href="javascript:void(0)" onclick="filterJobs()">Find job</a>
+    </div>  
+</form>
                             </div>
                         </div>
                     </div>
